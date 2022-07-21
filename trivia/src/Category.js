@@ -8,7 +8,8 @@ console.log("console is connected")
 export default function SelectCategory ( {category} ) {
     const [triviaQuestions, setTriviaQuestions] = useState([])
     const [selectedCategory, setSelectedCategory] = useState(null)
-    const [categoryURL, setCategoryURL] = useState(`https://opentdb.com/api.php?amount=10&${category.id}type=multiple`)
+    const [categoryURL, setCategoryURL] = useState()
+
 
     function decodeHtml(html) {
         let txt = document.createElement("textarea");
@@ -16,20 +17,14 @@ export default function SelectCategory ( {category} ) {
         return txt.value;
     }
 
-    // const handleSelectedCategory=(props)=>{
-    //     // this creates the URL based off of the ID of the category
-    //         let categoryID = props
-    //         setSelectedCategory(categoryID)
-    //         setCategoryURL(`https://opentdb.com/api.php?amount=10&category=${category.id}type=multiple`)
-    //     }
-    
+
 
     // ajax call to retreive list of trivia questions based on the round you have selected
     useEffect(() => {
         axios
-            .get(categoryURL)
+            .get(`https://opentdb.com/api.php?amount=10&category=${category.id}&type=multiple`)
             .then ((res) => setTriviaQuestions(res.data.results))
-}, [categoryURL] )
+}, [] )
 
 
 
@@ -38,7 +33,7 @@ return (
 
 {/* The line below glitches and reproduces the headings of my "home" page. idk why. Ask Amy in class.*/}
 {/* <App category={selectedCategory}/> */}
-You have slected {category.name}! Let's begin.
+You have selected {category.name}! Let's begin.
 {triviaQuestions ? 
 
     <div className="questions">
