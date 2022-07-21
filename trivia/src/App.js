@@ -26,8 +26,10 @@ function App() {
 
 return (
   <div className="container">
-    <h1>Welcome to Trivia!</h1>
-    <h2>Pick a category below to get started:</h2>
+    <div className="header">
+      <h1>Welcome to Trivia!</h1>
+      <h2>Pick a category below to get started:</h2>
+    </div>
     {selectedCategory ? (
       <SelectCategory category={selectedCategory} />
     ) : (
@@ -41,9 +43,7 @@ return (
           <h4>{category.name}</h4>
         </div>
       ))
-    )}
-
-  </div>
+    )}</div>
 )
 }
 export default App;

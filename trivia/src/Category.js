@@ -2,6 +2,7 @@ import { useState, useEffect } from "react"
 import App from "./App"
 import axios from "axios"
 import { render } from "@testing-library/react"
+import SingleQuestion from "./SingleQuestion"
 
 console.log("console is connected")
 
@@ -9,6 +10,8 @@ export default function SelectCategory ( {category} ) {
     const [triviaQuestions, setTriviaQuestions] = useState([])
     const [selectedCategory, setSelectedCategory] = useState(null)
     const [categoryURL, setCategoryURL] = useState()
+    
+
 
 
     function decodeHtml(html) {
@@ -27,13 +30,11 @@ export default function SelectCategory ( {category} ) {
 }, [] )
 
 
-
 return (
 <>
 
-{/* The line below glitches and reproduces the headings of my "home" page. idk why. Ask Amy in class.*/}
-{/* <App category={selectedCategory}/> */}
 You have selected {category.name}! Let's begin.
+
 {triviaQuestions ? 
 
     <div className="questions">
@@ -41,10 +42,10 @@ You have selected {category.name}! Let's begin.
     <div className="single-question">
     
         <li key={question.question}> {decodeHtml(question.question)}
-        <ul><input type="radio" value={question.correct_answer} name="answer"/>{question.correct_answer}</ul>
+        <ul><input type="radio" value={question.correct_answer} name="answer"/>{decodeHtml(question.correct_answer)}</ul>
     <div>
         {question.incorrect_answers.map((answer) => (
-            <ul><input type="radio" value={answer.incorrect_answers} name="answer"/>{answer}</ul>
+            <ul><input type="radio" value={answer.incorrect_answers} name="answer"/>{decodeHtml(answer)}</ul>
     
     ))}
     </div>
