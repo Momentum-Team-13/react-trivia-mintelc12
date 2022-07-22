@@ -8,19 +8,12 @@ console.log("console is connected")
 
 export default function SelectCategory ( {category} ) {
     const [triviaQuestions, setTriviaQuestions] = useState([])
-    const [selectedCategory, setSelectedCategory] = useState(null)
-    const [categoryURL, setCategoryURL] = useState()
-    
-
-
 
     function decodeHtml(html) {
         let txt = document.createElement("textarea");
         txt.innerHTML = html;
         return txt.value;
     }
-
-
 
     // ajax call to retreive list of trivia questions based on the round you have selected
     useEffect(() => {
