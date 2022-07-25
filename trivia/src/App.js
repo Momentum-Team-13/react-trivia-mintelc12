@@ -26,14 +26,17 @@ function App() {
 
 return (
   <div className="container">
-    <div className="header">
-      <h1>Welcome to Trivia!</h1>
-      <h2>Pick a category below to get started:</h2>
-    </div>
+    
+      
+    
     {selectedCategory ? (
       <SelectCategory category={selectedCategory} />
     ) : (
-      categories.map((category) => (
+      <div className="header">
+      <h1>Welcome to Trivia!</h1>
+      <h2>Pick a category below to get started:</h2>
+      
+      {categories.map(category => (
         
         <div
           className="category-card"
@@ -42,7 +45,7 @@ return (
         >
           <h4>{category.name}</h4>
         </div>
-      ))
+  ))}</div>
     )}</div>
 )
 }

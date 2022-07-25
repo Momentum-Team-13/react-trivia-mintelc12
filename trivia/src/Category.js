@@ -1,8 +1,7 @@
 import { useState, useEffect } from "react"
 import App from "./App"
 import axios from "axios"
-import { render } from "@testing-library/react"
-import LastQuestion from "./LastQuestion"
+import FinalScore from "./FinalScore"
 
 console.log("console is connected")
 
@@ -10,6 +9,7 @@ export default function SelectCategory ( {category} ) {
     const [triviaQuestions, setTriviaQuestions] = useState([])
     const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0)
     const [count, setCount] = useState(0)
+    const [endGame, setEndGame] = useState(false)
 
 
     //makes html readable for actual humans 
@@ -61,17 +61,26 @@ function handleUserAnswer(answer) {
 
 if (currentQuestionIndex === 9 ) {
     console.log("you are on the last question.")
+}
 
+function handleEndGame(question) {
+    if (currentQuestionIndex > 9) {
+        setEndGame(true)
+    }
+    
 }
 
 
 return (
+    <>
+    {currentQuestionIndex < 10 ? (
     <div className="questions-list">
         {triviaQuestions.length > 0 && 
             <>
                 <h1>Question {currentQuestionIndex + 1}:</h1> <br/>
                     <h3>{decodeHtml(triviaQuestions[currentQuestionIndex].question)}</h3>
                 
+
                     {getAnswerList().map(
                         (answer, index) => <ul key={index}>
                             <button className="answerButtons" onClick={() => {handleUserAnswer(answer) }}>{decodeHtml(answer)}   
@@ -83,9 +92,12 @@ return (
                 <br/>
                 You have {count} right answers.
             </>}
-        
-    </div>
-
+            </div>
+        ) : (
+            <FinalScore />
+            
+    )}
+    </>
     );
 
 }
