@@ -19,14 +19,14 @@ From there, think about what the user wants to do next. What will they see and d
 ## Requirements
 
 ✅ A user can select a category and take a quiz in that category. A quiz should have at least 10 questions in it. 
-- A quiz shows the user one question at a time. 
-  - The possible answers should be shown in a random order so that the correct answer isn't in the same place every time.
-- The application tracks the user's answers and shows results. You might do this as they go through each question or at the end, or both.
+✅ A quiz shows the user one question at a time. 
+  ✅ The possible answers should be shown in a random order so that the correct answer isn't in the same place every time.
+✅ The application tracks the user's answers and shows results. You might do this as they go through each question or at the end, or both.
 - Your React application should be broken up into 3 or more components.
-- Your application should have two or more "screens." In a traditional web application, we'd think of these as different pages or views.
-- Your application uses React's state to manage data.
+✅ Your application should have two or more "screens." In a traditional web application, we'd think of these as different pages or views.
+✅ Your application uses React's state to manage data.
 ✅ Your application uses Open Trivia Database's API.
-- Your application is styled.
+✅ Your application is styled.
 
 ## 🌶️ Ideas once you have the basics working
 
