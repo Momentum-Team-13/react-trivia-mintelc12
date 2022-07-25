@@ -94,8 +94,10 @@ return (
             </>}
             </div>
         ) : (
+            <>
             <FinalScore />
-            
+            <h3>You scored {count} points.</h3>
+            </>
     )}
     </>
     );

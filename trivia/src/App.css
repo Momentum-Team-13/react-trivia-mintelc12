@@ -1,10 +1,39 @@
+.container{
+  margin: auto;
+  align-items: center;
+}
+
+body {
+  background-color: rgb(215, 206, 206);
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.start-header {
+  margin: auto;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+}
+
+
 h1, h2 {
   text-align: center;
+  align-items: center;
   font-family: 'Pacifico', cursive;
+  background-color: white;
+  max-width: 500px;
+  margin: 10px;
+  border-radius: 30px;
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
 }
 
 h3 {
-  text-align: center;
+  text-align: center;  
 }
 
 h4 {
@@ -43,5 +72,10 @@ h4 {
   display: inline-grid;
   width: 200px;
   height: 120px;
+  text-align: center;
+  margin: auto;
+}
+
+button {
   text-align: center;
 }

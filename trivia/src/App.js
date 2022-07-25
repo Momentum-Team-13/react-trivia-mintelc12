@@ -27,15 +27,14 @@ function App() {
 return (
   <div className="container">
     
-      
-    
     {selectedCategory ? (
       <SelectCategory category={selectedCategory} />
     ) : (
       <div className="header">
-      <h1>Welcome to Trivia!</h1>
-      <h2>Pick a category below to get started:</h2>
-      
+        <div className="start-header">
+          <h1>Welcome to Trivia!</h1>
+          <h2>Pick a category below to get started:</h2>
+        </div>
       {categories.map(category => (
         
         <div
